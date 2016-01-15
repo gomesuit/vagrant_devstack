@@ -4,7 +4,7 @@ apt-get install git
 
 git clone https://github.com/openstack-dev/devstack.git
 
-cd devstack; ./stack.sh
+#cd devstack; ./stack.sh
 
 # install ansible
 #yum -y install ansible
