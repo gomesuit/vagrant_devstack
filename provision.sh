@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apt-get install git
+apt-get -y install git
 
 git clone https://github.com/openstack-dev/devstack.git
 
