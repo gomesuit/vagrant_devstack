@@ -1,33 +1,16 @@
 #!/bin/sh
 
+apt-get -y update
+apt-get -y upgrade
 apt-get -y install git
+#apt-get -y install libsqlite3-dev
 
-git clone https://github.com/openstack-dev/devstack.git
+#git clone https://github.com/openstack-dev/devstack.git
 
 #cd devstack; ./stack.sh
 
-# install ansible
-#yum -y install ansible
+#sudo pip install --upgrade pip
+#sudo pip install os-testr
 
-# git clone playbook
-#cd /home/vagrant
-#git clone https://github.com/gomesuit/ansible_Playbook.git
-#cd ansible_Playbook
-
-# run ansbile
-#ansible-playbook -i hosts localhost.yml
-
-# git clone serverspec file
-#cd /home/vagrant
-#git clone https://github.com/gomesuit/serverspecFile.git
-
-# run serverspec
-#cd serverspecFile
-#rake spec
-
-# git clone provisioner
-#cd /home/vagrant
-#git clone https://github.com/gomesuit/provisioner.git
-# run ansbile
-#cd /home/vagrant/provisioner
-#ansible-playbook -i hosts provisioner.yml
+#pip install pycadf==0.8.0
+#pip install 'pycadf<0.9.0,>=0.8.0'
