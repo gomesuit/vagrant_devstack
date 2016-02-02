@@ -1,0 +1,72 @@
+##devstack configuration(Using Neutron)
+#
+#sample: ~/devstack/samples/local.conf
+#
+
+[[local|localrc]]
+VERBOSE=True
+USE_SCREEN=True
+LOGFILE=/opt/stack/logs/stack.sh.log
+
+# Passwords and Token
+ADMIN_PASSWORD=password
+MYSQL_PASSWORD=password
+RABBIT_PASSWORD=password
+SERVICE_PASSWORD=password
+SERVICE_TOKEN=token
+
+# Network
+# see: http://goo.gl/p70pIm
+# Set Host's IP Address 
+HOST_IP=192.168.33.20
+# FIXED_RANGE is used by internal subnet which is by default 'private'.
+#FIXED_RANGE=192.168.33.0/24
+# NETWORK_GATEWAY is address of gateway connects internal to external.  
+#NETWORK_GATEWAY=192.168.33.1
+# FLOATING_RANGE is used by external subnet which is by default 'public'
+#FLOATING_RANGE=172.17.14.193/27
+# PUBLIC_NETWORK_GATEWAY is external gateway.
+#PUBLIC_NETWORK_GATEWAY=172.17.14.193
+#FLOATING_RANGE=172.17.14.0/24
+#PUBLIC_NETWORK_GATEWAY=172.17.14.1
+#Q_FLOATING_ALLOCATION_POOL=start=172.17.14.193,end=172.17.14.222
+
+IP_VERSION=4
+#PUBLIC_INTERFACE=eth0
+#OVS_PHYSICAL_BRIDGE=br-ex
+#FLOATING_RANGE=10.0.2.0/24
+#PUBLIC_NETWORK_GATEWAY=10.0.2.2
+
+# Services
+# see: https://gist.github.com/everett-toews/11063431
+ENABLED_SERVICES=rabbit,mysql,key
+ENABLED_SERVICES+=,n-api,n-crt,n-obj,n-cpu,n-cond,n-sch,n-novnc,n-cauth
+ENABLED_SERVICES+=,neutron,q-svc,q-agt,q-dhcp,q-l3,q-meta,q-lbaas
+ENABLED_SERVICES+=,g-api,g-reg
+ENABLED_SERVICES+=,cinder,c-api,c-vol,c-sch,c-bak
+ENABLED_SERVICES+=,horizon
+
+# Use this image when creating test instances
+IMAGE_URLS+=",http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img"
+IMAGE_URLS+=",https://cloud-images.ubuntu.com/releases/15.04/release/ubuntu-15.04-server-cloudimg-amd64-disk1.img"
+
+#version:
+#https://github.com/openstack-dev/devstack
+#https://github.com/openstack/swift
+
+#KEYSTONE_BRANCH=stable/kilo
+#NOVA_BRANCH=stable/kilo
+#GLANCE_BRANCH=stable/kilo
+#CINDER_BRANCH=stable/kilo
+#HORIZON_BRANCH=stable/kilo
+#NEUTRON_BRANCH=stable/kilo
+#SWIFT_BRANCH=stable/kilo
+
+EXTRA_OPTS=(
+vnc_keymap=ja
+)
+
+#[[post-config|/etc/neutron/dhcp_agent.ini]]
+#[DEFAULT]
+#dnsmasq_dns_servers = 10.0.2.3
+
