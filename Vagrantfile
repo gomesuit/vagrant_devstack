@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 80, host: 80
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "6144", "--cpus", "2"]
+    vb.customize ["modifyvm", :id, "--memory", "5120", "--cpus", "2", "--nicpromisc2", "allow-all"]
   end
 
   config.vm.define "devstack" do |host|
